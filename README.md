@@ -37,7 +37,6 @@ In the terminal, run `mysql -u root -p < db/schema.sql`. Then enter your MySQL p
 ## Screenshot of Deployed Application
 ![Screeenshot]("tech-blog.jpg")
 
-
 ## Built With
 - Javascript
 - MySQL
