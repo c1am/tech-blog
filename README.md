@@ -12,19 +12,26 @@ The user should clone the repository from GitHub. This application will follow t
 
 ## Installation
 Clone this repository. 
-![Repository Link](https://github.com/c1am/tech-blog) 
-![SSH Clone Link](git@github.com:c1am/tech-blog.git)
-![Heroku Deployment Link]()
+[Repository Link](https://github.com/c1am/tech-blog) 
+[SSH Clone Link](git@github.com:c1am/tech-blog.git)
+[Heroku Deployment Link](https://cherrys-tech-blog.herokuapp.com/)
 
-Install `node.js`, open the terminal and run `npm i` to install these packages in the format of this example `npm i express` for each package: 
-
+Install `node.js`, open the terminal and run `npm i` to install the packages below in the format of this example `npm i mysql2` for each package:
+- mysql2
+- express
+- dotenv
+- bcrypt
+- sequelize
+- express
+- express-session
+- express-handlebars
 
 Create a database using the `schema.sql` file.
 
 In the terminal, run `mysql -u root -p < db/schema.sql`. Then enter your MySQL password. Then run `npm run seed` to populate the database with the provided sample data.
 
 
-## Deployment/Demo
+## Picture of Deployed Application
 
 
 
