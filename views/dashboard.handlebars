@@ -1,0 +1,44 @@
+<html lang="en">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col">
+        <h2>Create New Post</h2>
+
+        <form class="postForm">
+          <div class="form-outline mb-4">
+            <label class="form-label" for="createPostTitle">Title</label>
+            <input type="text" id="createPostTitle" name="createPostTitle" class="form-control" />
+            
+          </div>
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="createPostContent">Enter post text here</label>
+            <textarea class="form-control" id="createPostContent" rows="4"></textarea>
+            
+          </div>
+
+          <button type="submit" class="btn btn-primary">Post</button>
+          
+        </form>
+      </div>
+    </div>
+
+    {{#if posts.length}}
+      <section>
+        <br>
+        <h2>Your Posts</h2>
+        <ol>
+          {{#each posts as |post|}}
+          <li>
+            {{post.title}}
+            <br>
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a><br><br>
+            
+          </li>
+          {{/each}}
+        </ol>
+      </section>
+    {{/if}}
+  </div>
+</html>
+<script src="/js/newPost.js"></script>

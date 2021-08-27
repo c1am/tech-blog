@@ -1,28 +1,77 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Homepage
 router.get('/', async (req, res) => {
-    try {
+  try {
 
-        // Get all posts and JOIN with user data
-        const postData = await Post.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-            ],
-        });
+    const postData = await Post.findAll({
+      include: [{ model: User, attributes: ['username'] }]
+    });
 
 
-        // Serialize data so the template can read it
-        const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-        // Pass serialized data and session flag into template
-        res.render('homepage', {
-            posts,
-            logged_in: req.session.logged_in
-        });
-    }
-})
+
+    res.render('homepage', {   
+      layout: 'main', posts,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET one post 
+router.get('/posts/:id', withAuth, async(req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: User, attributes: ['username'] },
+        { model: Comment, include: { model: User } }
+      ]
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render('newComment', { 
+      layout: 'main', 
+      ...post, 
+      logged_in: req.session.logged_in 
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/login', (req, res) => {
+  
+
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+
+  res.render('login', { 
+    layout: 'main'
+  });
+});
+
+// Signup page
+router.get('/signup', (req, res) => {
+  
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  
+  res.render('signup', { 
+    layout: 'main'
+  });
+});
+
+
+module.exports = router;

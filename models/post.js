@@ -21,7 +21,7 @@ Post.init(
             type: DataTypes.STRING,
         },
 
-        dataCreated: {
+        dateCreated: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
@@ -36,5 +36,13 @@ Post.init(
 
         },
         
+    },
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'post'
     }
-)
+);
+
+module.exports = Post;

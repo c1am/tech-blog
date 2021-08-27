@@ -1,0 +1,24 @@
+{{> comment}}
+
+{{#if logged_in}}
+<div class="col">
+  <div class="card m-2">
+    <div class="card-header bg-light">
+      <div class ="fs-3 fw-bold">Add Comment</div>
+    </div>
+    <div class="card-body">
+      <form class="form commentForm">
+        <div class="form-group mb-3">
+          <label for="createComment" class="form-label fw-bold">Comment</label>
+          <textarea class="form-control" id="createComment" rows="6"></textarea>
+        </div>
+        <div class="form-group mb-3">
+          <button class="btn btn-primary" type="submit" id="comment-btn">Add Comment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>
+{{/if}}

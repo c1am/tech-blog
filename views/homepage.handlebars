@@ -1,24 +1,10 @@
-<!-- Loop over each object in the projects array -->
-{{#each posts as |post|}}
-<div class='row mb-4 post'>
-    <div class='card' style='width: 90em'>
-        <div class='card-header'>
-            <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-            {{{get_emoji}}}
-            <a href='/post/{{post.id}}'>{{post.title}}</a>
-        </div>
-        <div>
-            {{post.content}}
-        </div>
-
-        <div class='card-body'>Created by
-            {{post.user.name}}
-            on
-            {{format_date post.date_create}}
-            <div>
-                {{post.text}}
-            </div>
-        </div>
+{{#each posts}}
+<div class="col">
+  <div class="card m-3">
+    <div class="card-header d-flex justify-content-between bg-light">
+      <span><a href="/posts/{{id}}">{{title}}</a></span>
+      <span>{{format_date dateCreated}}</span>
     </div>
+  </div>
 </div>
 {{/each}}
