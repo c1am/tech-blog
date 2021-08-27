@@ -1,6 +1,9 @@
 {
   "name": "tech-blog",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)",
   "main": "server.js",
   "scripts": {
