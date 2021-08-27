@@ -32,7 +32,6 @@ In the terminal, run `mysql -u root -p < db/schema.sql`. Then enter your MySQL p
 
 
 ## Picture of Deployed Application
-![image](./fitness-tracker.png)
 
 
 ## Built With
