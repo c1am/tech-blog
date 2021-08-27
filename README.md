@@ -32,7 +32,7 @@ In the terminal, run `mysql -u root -p < db/schema.sql`. Then enter your MySQL p
 
 
 ## Picture of Deployed Application
-![screenshot](./fitness-tracker.png)
+![image](./fitness-tracker.png)
 
 
 ## Built With
